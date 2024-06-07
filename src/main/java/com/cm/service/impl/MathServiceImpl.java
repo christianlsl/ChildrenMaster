@@ -1,17 +1,31 @@
 package com.cm.service.impl;
 
-import com.cm.dao.MathProblem;
-import com.cm.dao.MathSet;
+import com.cm.dao.*;
+import com.cm.pojo.MathProblem;
+import com.cm.pojo.MathSet;
 import com.cm.service.MathService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+
 //都是正整数且除法的结果没有余数 1表示结果在20以内的加减法。2表示结果在100以内两位数的加减。
 // 3表示生成一个结果在100以内乘除。4表示结果在1000以内加减乘除。
 @Service
 public class MathServiceImpl implements MathService {
+    @Autowired
+    private MathRepository mathRepository;
+
+    @Override
+    public List<Float> getMathScoresById(long id){
+        List<MathExerciseScore> scores = mathRepository.findTop10ByUserIdOrderByDateRecordedDesc(id);
+        return scores.stream()
+                .map(MathExerciseScore::getCorrectRate) // 获取分数
+                .collect(Collectors.toList());
+    }
 
     @Override
     public MathSet generateMathProblems(int level) {

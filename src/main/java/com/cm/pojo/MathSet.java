@@ -1,4 +1,4 @@
-package com.cm.dao;
+package com.cm.pojo;
 
 import java.util.List;
 public class MathSet {

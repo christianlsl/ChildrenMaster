@@ -1,5 +1,5 @@
 
-package com.cm.dao;
+package com.cm.pojo;
 public class MathProblem {
     private String question;
     private int answer;
