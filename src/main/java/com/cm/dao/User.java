@@ -1,10 +1,12 @@
 package com.cm.dao;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
+@Data
 @Table(name="user")
 public class User {
     @Id
@@ -19,44 +21,4 @@ public class User {
     private String nick_name;
     @Column(name="age")
     private int age;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNick_name() {
-        return nick_name;
-    }
-
-    public void setNick_name(String nick_name) {
-        this.nick_name = nick_name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
