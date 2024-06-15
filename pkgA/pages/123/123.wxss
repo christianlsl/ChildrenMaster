@@ -1,0 +1,91 @@
+/* pages/index/123/123.wxss */
+.num-container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(253,196,182,1);
+}
+.add{
+  width:90rpx;
+  height:90rpx;
+  margin: auto auto;
+}
+
+.numchoice{
+  border-radius: 30rpx;
+  background-color:rgba(255,255,255,1);
+  width: 90%;
+  height:100rpx;
+  margin:10rpx auto;
+  
+}
+.num_img{
+  width:50rpx;
+  height: 50rpx;
+  margin-left: 14rpx;
+  margin-top: 16rpx;
+}
+.apple_img{
+  width:80rpx;
+  height: 80rpx;
+  margin-left: 14rpx;
+  margin-top: 16rpx;
+}
+.bg1{
+  height:300rpx;
+  width:90%;
+  margin: 30rpx auto;
+  display: flex;
+  flex-direction: column;
+}
+.bg2{
+  height:420rpx;
+  width:95%;
+  margin: 50rpx auto;
+  display: flex;
+  flex-direction: row;
+}
+.dot_box1{
+float: left;
+border-radius: 30rpx;
+  background-color:rgba(255,255,255,1);
+  width: 300rpx;
+  height:400rpx;
+
+}
+.dot_box2{
+float: right;
+border-radius: 30rpx;
+  background-color:rgba(255,255,255,1);
+  width: 300rpx;
+  height:400rpx; 
+}
+
+input{
+  font-size: 40rpx;
+  width: 50%;
+  border:5rpx solid rgba(0,77,97,1);
+  margin: 20rpx auto;
+  background-color: rgba(244,240,230,1);
+  text-align: center;
+}
+button{
+  width: 40%;
+  background-color: rgba(157,211,168,1);
+}
+.choosebox{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #99cccc;
+}
+
+.box1{
+  justify-content: center;
+  width:30%;
+  height:70rpx;
+  display: flex;
+  flex-direction: row;
+  border:10rpx solid #ea7070;
+  border-radius: 40rpx;
+}

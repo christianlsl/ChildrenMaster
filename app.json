@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/learn/index",
+    "pages/my/my"
+  ],
+  "subpackages":[
+    {
+      "root":"pkgA",
+      "name":"abc123",
+      "pages":[
+        "pages/abc/abc",
+        "pages/123/123"
+      ],
+      "independent":true
+    },
+    {
+      "root":"pkgB",
+      "name":"p2",
+      "pages":[
+        "pages/shape/shape",
+        "pages/dinosaur/dinosaur"
+      ],
+      "independent":true
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1ECFA7",
+    "navigationBarTitleText": "BabyMaster 宝宝大师",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#79bd9a",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/learn/index",
+        "iconPath": "/image/learn_off.png",
+        "selectedIconPath": "/image/learn_on.png",
+        "text": "学一学"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/image/my_off.png",
+        "selectedIconPath": "/image/my_on.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "color-picker": "/components/color-picker/color-picker"
+  }
+}

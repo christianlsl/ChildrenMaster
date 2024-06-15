@@ -1,0 +1,20 @@
+<view class="index-container">
+  <view class="index-header">
+    <image class="index-header-bg" src="../learn/img/img_login_bg.png"></image>
+    <image class="index-header-obg" src="../learn/img/reading.png"></image>
+    <!-- <image class="index-header-title" src="../baby/img/title.png"></image> -->
+  </view>
+  <!-- <view class="itemBox">
+    <navigator url="../index/abc/abc">
+      <image src="../index/img/abc.png"></image>
+    </navigator>
+  </view> -->
+
+  <view class="content-wrapper">
+    <block wx:for="{{ch}}" wx:key="item">
+      <navigator url="{{item.navigator}}" class="navBox">
+        <image src="{{item.imgurl}}" class="img"></image>
+      </navigator>
+    </block>
+  </view>
+</view>
