@@ -6,6 +6,7 @@ import com.cm.service.PoemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -67,6 +68,7 @@ public class PoemServiceImpl implements PoemService {
 
             poemVerses.append(question);
             PoemSet poemSet = new PoemSet();
+            poemSet.setTitle(poem.getTitle());
             poemSet.setPoemVerses(poemVerses.toString());
             poemSet.setAnswer(answer);
 
@@ -114,6 +116,7 @@ public class PoemServiceImpl implements PoemService {
 
             poemVerses.append(question);
             PoemSet poemSet = new PoemSet();
+            poemSet.setTitle(poem.getTitle());
             poemSet.setPoemVerses(poemVerses.toString());
             poemSet.setAnswer(answer);
 
@@ -121,5 +124,14 @@ public class PoemServiceImpl implements PoemService {
         }
 
         return poemSets;
+    }
+    @Override
+    public void addPoemExerciseScore(long id,float correctRate) {
+        PoemExerciseScore score = new PoemExerciseScore();
+        score.setUserId(id);
+        score.setCorrectRate(correctRate);
+        score.setDateRecorded(LocalDateTime.now());
+
+        poemRepository.save(score);
     }
 }
