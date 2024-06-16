@@ -1,0 +1,40 @@
+<import src="../template/video"></import>
+
+<view class="personalContainer">
+  <view class="user-section">
+    <image class="bg" src="./image/scene.png"></image>
+    <view class="user-info-box">
+      <image wx:if="{{userInfo.avatarUrl}}" class="portrait" src='{{userInfo.avatarUrl}}'></image>
+      <button wx:else bindtap="getUserProfile" class="loginButton">点我登陆</button>
+      <text class="username">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+
+  <view class="row-container">
+    <view class="header">
+      <view class="left">
+        <view class="hot"></view>
+        <text>历史记录</text>
+      </view>
+    </view>
+    <view class="content-wrapper">
+      <block wx:for="{{history}}" wx:key="item">
+        <view class="content-list">
+          <view class="item">
+            <view class="top">
+              <video class="cover-img" style="opacity: 1" src="{{item.url}}">
+              </video>
+            </view>
+            <view class="info">
+              <view class="title">{{item.title}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view hidden="{{!isLogin}}">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>
