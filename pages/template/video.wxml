@@ -1,0 +1,13 @@
+<template name="item1">
+    <view class="content-list">
+        <navigator class="item" url="../videoPage/videoPage?title={{title}}&url={{url}}">
+            <view class="top">
+                <view class="cover-img" style="opacity: 1; background-image: url({{coverImg}});">
+                </view>
+            </view>
+            <view class="info">
+                <view class="title">{{title}}</view>
+            </view>
+        </navigator>
+    </view>
+</template>
