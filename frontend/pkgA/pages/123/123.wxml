@@ -1,0 +1,39 @@
+<view class="num-container">
+  <view class="box1">
+    <image class="choosebox add" src="../123/img/add.png" bindtap="change_add"></image>
+    <image class="choosebox add" src="../123/img/minus.png" bindtap="change_minus"></image>
+  </view>
+  <view class="bg1">
+    <view class="numchoice">
+      <block wx:for="{{num}}" wx:key="item">
+        <image src="{{item.imgurl}}" class="num_img" bindtap="num_change" data-digit="{{item.name}}"></image>
+      </block>
+    </view>
+    <image class="add" src="{{character_src}}"></image>
+    <view class="numchoice">
+      <block wx:for="{{num}}" wx:key="item">
+        <image src="{{item.imgurl}}" class="num_img" bindtap="num_change2" data-digit="{{item.name}}"></image>
+      </block>
+    </view>
+  </view>
+
+  <view class="bg2">
+    <view class="dot_box1">
+      <block wx:for="{{apple}}" wx:key="item">
+        <image src="{{item}}" class="apple_img"></image>
+      </block>
+    </view>
+    <image class="add" src="{{character_src}}"></image>
+    <view class="dot_box2">
+      <block wx:for="{{apple2}}" wx:key="item">
+        <image src="{{item}}" class="apple_img"></image>
+      </block>
+    </view>
+  </view>
+
+  <form bindsubmit="ansSubmit">
+    <input type="number" placeholder="请输入答案" name="ans" />
+    <button form-type="submit">提交</button>
+  </form>
+
+</view>

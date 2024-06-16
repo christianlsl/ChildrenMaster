@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="canvas_area">
+        <canvas canvas-id="myCanvas" class="myCanvas" disable-scroll="true" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+        </canvas>
+    </view>
+
+    <view class="canvas_tools">
+        <image src="../shape/img/pencil.png" class="sbox box1" bindtap="penSelect" data-param="5" ></image>
+        <image src="../shape/img/brush.png" class="sbox box2" bindtap="penSelect" data-param="15"></image>
+        <view class="sbox box3" bindtap="colorSelect" data-param="#f1404b"></view>
+        <view class="sbox box4" bindtap="colorSelect" data-param="#24a8ac"></view>
+        <image src="../shape/img/rubber.png" class="sbox box5" bindtap="clear"></image>
+        <image src="../shape/img/clearAll.png" class="sbox box5" bindtap="clearAll"></image>
+        <view style="background:{{rgb}};" bindtap="toPick" class="sbox box6">{{rgb}}</view>
+        <view class="sbox box7" bindtap="openPenSizeSlider">粗细</view>
+    </view>
+
+    <!-- 弹出颜色选择器 -->
+    <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
+
+    <!-- 弹出画笔粗细滑块 -->
+    <view wx:if="{{showPenSizeSlider}}" class="penSizeSlider">
+        <slider min="1" max="50" show-value value="{{pen}}" bindchange="changePenSize"/>
+        <button bindtap="closePenSizeSlider">确定</button>
+    </view>
+</view>

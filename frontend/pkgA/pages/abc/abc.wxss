@@ -1,0 +1,75 @@
+.abc-container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(75,194,197,1);
+}
+.head{
+  background-color: rgba(59,154,156,1);
+  width: 100%;
+  height:110rpx;
+}
+.title{
+  float: left;
+  margin:20rpx 15rpx;
+  width:330rpx;
+  height:70rpx;
+}
+.phonetic_hidden{
+  float: right;
+  width:100rpx;
+  height:90rpx;
+  margin: 10rpx 15rpx;
+}
+.alphabet {
+  padding-top: 12rpx;
+  font-family: 'Times New Roman', Times, serif;
+  margin-left: 20rpx;
+  clear: both;
+}
+
+.wordwrap {
+  padding-left: 10rpx;
+  padding-bottom: 30rpx; 
+  height: 1%;
+  overflow: hidden;
+}
+
+.wordsection {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30rpx;
+  width: 500rpx;
+  background-color:rgba(234,227,227,1);
+  margin:30rpx;
+}
+
+.word {
+  font-size: 170rpx;
+  font-weight: 700;
+  padding-bottom: 6rpx;
+  text-align: center;
+}
+
+.wordkk {
+  padding-bottom: 12rpx;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 65rpx;
+  text-align: center;
+}
+
+.wordsound {
+  padding-bottom: 12rpx;
+  padding-left: 24rpx;
+  width: 100rpx;
+  padding-top: 6rpx;
+}
+.wordsound .img{
+  width: 100%;
+  height:100rpx
+}
+.abc_box{
+  height: 100%;
+  width: 300rpx;
+  margin: 30rpx 100rpx;
+}

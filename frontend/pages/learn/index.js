@@ -1,0 +1,27 @@
+Page({
+  data:{
+    ch:[
+      {
+        imgurl:"../learn/img/abc.png",
+        navigator:"/pkgA/pages/abc/abc"
+      },
+      {
+        imgurl:"../learn/img/123.png",
+        navigator:"/pkgA/pages/123/123"
+      },
+      {
+        imgurl:"../learn/img/shape.png",
+        navigator:"/pkgB/pages/shape/shape"
+      },
+      {
+        imgurl:"../learn/img/dinosaur.png",
+        navigator:"/pkgB/pages/dinosaur/dinosaur"
+      },
+      {
+        imgurl:"../learn/img/animal.png",
+        navigator:"/pkgB/pages/animal/animal"
+      }
+    ],
+  }
+  
+})
