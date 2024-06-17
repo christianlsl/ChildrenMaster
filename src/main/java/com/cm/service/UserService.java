@@ -8,10 +8,13 @@ public interface UserService {
 
     Result register(LoginFormDTO loginForm);
 
-//  login with email and passwd
+    Result resetPasswd(LoginFormDTO loginForm);
+
     Result login(LoginFormDTO loginForm);
 
     public Result getUserById(long id);
 
     Result updateUserById(long id, int age, String nickName, String email);
+
+
 }

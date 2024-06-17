@@ -43,10 +43,10 @@ public class UserServiceImpl implements UserService {
             //not match, return error
             return Result.fail("邮箱格式错误！");
         }
-        User user = userRepository.findByEmail(email);
-        if (user!=null){
-            return Result.fail("邮箱"+email+"已被注册！");
-        }
+//        User user = userRepository.findByEmail(email);
+//        if (user!=null){
+//            return Result.fail("邮箱"+email+"已被注册！");
+//        }
         //match, create verification code
         String code = RandomUtil.randomNumbers(6);
         //send email
@@ -101,6 +101,55 @@ public class UserServiceImpl implements UserService {
         stringRedisTemplate.expire(tokenKey, LOGIN_USER_TTL, TimeUnit.MINUTES);
         //return token
         return Result.ok(token);
+    }
+
+    @Override
+    public Result resetPasswd(LoginFormDTO loginForm) {
+        //check email
+        String email = loginForm.getEmail();
+        if (RegexUtils.isEmailInvalid(email)) {
+            //not match, return error
+            return Result.fail("邮箱格式错误！");
+        }
+        User userInDB = userRepository.findByEmail(email);
+        if (userInDB==null){
+            return Result.fail("此邮箱"+email+" 还未注册！");
+        }
+        //check code
+        String cacheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY + email);
+        String code = loginForm.getCode();
+        if (cacheCode == null || !cacheCode.equals(code)) {
+            //different, error
+            return Result.fail("验证码错误");
+        }
+
+        if (StringUtils.hasLength(loginForm.getNick_name()) && !userInDB.getNick_name().equals(loginForm.getNick_name())){
+            userInDB.setNick_name(loginForm.getNick_name());
+        }
+        if (loginForm.getAge()>0 && userInDB.getAge()!=loginForm.getAge()){
+            userInDB.setAge(loginForm.getAge());
+        }
+        if (StringUtils.hasLength(loginForm.getPassword()) && !userInDB.getPassword().equals(loginForm.getPassword())){
+            userInDB.setPassword(loginForm.getPassword());
+        }
+        User user = userRepository.save(userInDB);
+
+        //save user to redis
+        //randomly create token
+        String token = UUID.randomUUID().toString(true);
+        //User to hash
+        UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
+        //save
+        Map<String, Object> userMap = BeanUtil.beanToMap(userDTO, new HashMap<>(),
+                CopyOptions.create()
+                        .setIgnoreNullValue(true).
+                        setFieldValueEditor((fieldName,fieldValue)->fieldValue.toString()));
+        String tokenKey = LOGIN_USER_KEY+token;
+        stringRedisTemplate.opsForHash().putAll(tokenKey, userMap);
+        stringRedisTemplate.expire(tokenKey, LOGIN_USER_TTL, TimeUnit.MINUTES);
+        //return token
+        return Result.ok(token);
+
     }
 
     @Override

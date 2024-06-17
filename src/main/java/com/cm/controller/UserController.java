@@ -27,6 +27,15 @@ public class UserController {
         return userService.register(loginForm);
     }
 
+    /**修改个人信息/忘记密码
+     * @param loginForm，包含email,age,password,nick_name
+     * 返回token
+     */
+    @PutMapping("/user/resetPasswd")
+    public Result resetPasswd(@RequestBody LoginFormDTO loginForm) {
+        return userService.resetPasswd(loginForm);
+    }
+
     /**登录功能
      * @param loginForm 登录参数，包含邮箱、密码
      * 返回token
@@ -41,11 +50,4 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PutMapping("/user/{id}")
-    public Result updateUserById(@PathVariable long id,
-                                            @RequestParam(required = false) String nick_name,
-                                            @RequestParam(required = false) int age,
-                                            @RequestParam(required = false) String password) {
-        return userService.updateUserById(id,age,nick_name,password);
-    }
 }

@@ -26,6 +26,7 @@ public class MvcConfig implements WebMvcConfigurer {
                         "/user/code",
                         "/user/login",
                         "/user/register",
+                        "/user/resetPasswd",
                         "/user/math/{level}",
                         "/user/poem/kid",
                         "/user/poem/teen"
