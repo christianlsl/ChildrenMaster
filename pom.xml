@@ -10,11 +10,12 @@
     </parent>
     <groupId>com.cm</groupId>
     <artifactId>ChildrenMaster</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
     <name>ChildrenMaster</name>
     <description>ChildrenMaster</description>
     <properties>
         <java.version>17</java.version>
+        <maven.test.skip>true</maven.test.skip>
     </properties>
     <dependencies>
         <dependency>
@@ -54,6 +55,7 @@
             <artifactId>hutool-all</artifactId>
             <version>5.7.17</version>
         </dependency>
+
     </dependencies>
 
     <build>

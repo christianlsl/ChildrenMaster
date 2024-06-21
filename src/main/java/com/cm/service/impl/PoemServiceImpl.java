@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,8 +36,6 @@ public class PoemServiceImpl implements PoemService {
         List<PoemKid> poemList = poemKidRepository.findAll();
 
         for (int i = 0; i < 10; i++) {
-            StringBuilder poemVerses = new StringBuilder();
-
             int randomIndex = random.nextInt(poemList.size());
             PoemKid poem = poemList.get(randomIndex);
 
@@ -66,11 +62,44 @@ public class PoemServiceImpl implements PoemService {
                 default -> throw new IllegalArgumentException("Invalid blank verse index");
             }
 
-            poemVerses.append(question);
+            // Collect options
+            Set<String> options = new LinkedHashSet<>();
+            options.add(answer);
+            while (options.size() < 4) {
+                int otherRandomIndex = random.nextInt(poemList.size());
+                PoemKid otherPoem = poemList.get(otherRandomIndex);
+                String otherOption;
+                switch (blankVerseIndex) {
+                    case 0 -> otherOption = otherPoem.getVerse1();
+                    case 1 -> otherOption = otherPoem.getVerse2();
+                    case 2 -> otherOption = otherPoem.getVerse3();
+                    case 3 -> otherOption = otherPoem.getVerse4();
+                    default -> throw new IllegalArgumentException("Invalid blank verse index");
+                }
+                if (!options.contains(otherOption)) {
+                    options.add(otherOption);
+                }
+            }
+
+            // Convert to list and shuffle options
+            List<String> optionsList = new ArrayList<>(options);
+            Collections.shuffle(optionsList);
+
+            // Determine the answer's position
+            String answerLetter = "";
+            if (optionsList.get(0).equals(answer)) answerLetter = "A";
+            else if (optionsList.get(1).equals(answer)) answerLetter = "B";
+            else if (optionsList.get(2).equals(answer)) answerLetter = "C";
+            else if (optionsList.get(3).equals(answer)) answerLetter = "D";
+
+            // Format options
+            String poemOptions = "A. " + optionsList.get(0) + ", B. " + optionsList.get(1) + ", C. " + optionsList.get(2) + ", D. " + optionsList.get(3);
+
             PoemSet poemSet = new PoemSet();
             poemSet.setTitle(poem.getTitle());
-            poemSet.setPoemVerses(poemVerses.toString());
-            poemSet.setAnswer(answer);
+            poemSet.setPoemVerses(question);
+            poemSet.setPoemOptions(poemOptions);
+            poemSet.setAnswer(answerLetter);
 
             poemSets.add(poemSet);
         }
@@ -86,8 +115,6 @@ public class PoemServiceImpl implements PoemService {
         List<PoemTeen> poemList = poemTeenRepository.findAll();
 
         for (int i = 0; i < 10; i++) {
-            StringBuilder poemVerses = new StringBuilder();
-
             int randomIndex = random.nextInt(poemList.size());
             PoemTeen poem = poemList.get(randomIndex);
 
@@ -114,11 +141,44 @@ public class PoemServiceImpl implements PoemService {
                 default -> throw new IllegalArgumentException("Invalid blank verse index");
             }
 
-            poemVerses.append(question);
+            // Collect options
+            Set<String> options = new LinkedHashSet<>();
+            options.add(answer);
+            while (options.size() < 4) {
+                int otherRandomIndex = random.nextInt(poemList.size());
+                PoemTeen otherPoem = poemList.get(otherRandomIndex);
+                String otherOption;
+                switch (blankVerseIndex) {
+                    case 0 -> otherOption = otherPoem.getVerse1();
+                    case 1 -> otherOption = otherPoem.getVerse2();
+                    case 2 -> otherOption = otherPoem.getVerse3();
+                    case 3 -> otherOption = otherPoem.getVerse4();
+                    default -> throw new IllegalArgumentException("Invalid blank verse index");
+                }
+                if (!options.contains(otherOption)) {
+                    options.add(otherOption);
+                }
+            }
+
+            // Convert to list and shuffle options
+            List<String> optionsList = new ArrayList<>(options);
+            Collections.shuffle(optionsList);
+
+            // Determine the answer's position
+            String answerLetter = "";
+            if (optionsList.get(0).equals(answer)) answerLetter = "A";
+            else if (optionsList.get(1).equals(answer)) answerLetter = "B";
+            else if (optionsList.get(2).equals(answer)) answerLetter = "C";
+            else if (optionsList.get(3).equals(answer)) answerLetter = "D";
+
+            // Format options
+            String poemOptions = "A. " + optionsList.get(0) + ", B. " + optionsList.get(1) + ", C. " + optionsList.get(2) + ", D. " + optionsList.get(3);
+
             PoemSet poemSet = new PoemSet();
             poemSet.setTitle(poem.getTitle());
-            poemSet.setPoemVerses(poemVerses.toString());
-            poemSet.setAnswer(answer);
+            poemSet.setPoemVerses(question);
+            poemSet.setPoemOptions(poemOptions);
+            poemSet.setAnswer(answerLetter);
 
             poemSets.add(poemSet);
         }

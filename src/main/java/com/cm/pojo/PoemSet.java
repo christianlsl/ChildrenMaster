@@ -1,9 +1,10 @@
 package com.cm.pojo;
 
+
 public class PoemSet {
     private String title;
     private String poemVerses;
-
+    private String poemOptions;
     private String answer;
 
     public String getTitle(){
@@ -20,6 +21,13 @@ public class PoemSet {
 
     public void setPoemVerses(String poemVerses) {
         this.poemVerses = poemVerses;
+    }
+    public String getPoemOptions() {
+        return poemOptions;
+    }
+
+    public void setPoemOptions(String poemOptions) {
+        this.poemOptions = poemOptions;
     }
 
     public String getAnswer() {
