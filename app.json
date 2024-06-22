@@ -1,26 +1,29 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/learn/index",
-    "pages/my/my"
+    "pages/my/my",
+    
+    "pages/register/register"
   ],
-  "subpackages":[
+  "subpackages": [
     {
-      "root":"pkgA",
-      "name":"abc123",
-      "pages":[
+      "root": "pkgA",
+      "name": "abc123",
+      "pages": [
         "pages/abc/abc",
         "pages/123/123"
       ],
-      "independent":true
+      "independent": true
     },
     {
-      "root":"pkgB",
-      "name":"p2",
-      "pages":[
+      "root": "pkgB",
+      "name": "p2",
+      "pages": [
         "pages/shape/shape",
         "pages/dinosaur/dinosaur"
       ],
-      "independent":true
+      "independent": true
     }
   ],
   "window": {

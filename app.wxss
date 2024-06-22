@@ -1,4 +1,5 @@
 /**app.wxss**/
+@import "/styles/font.wxss";
  .content-wrapper {
   display:flex;
  flex-wrap: wrap; 

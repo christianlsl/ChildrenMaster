@@ -1,0 +1,23 @@
+<!-- login.wxml -->
+<page>
+<view class="login">
+    <view class="login-item">
+        <image class="login-item-img" mode="widthFix" src="/image/child.png"></image>
+        <text class='user-name' style="color: #F1FAEE;font-size: 50rpx;">Childern Master</text>
+        <text class='user-name' style='color:#457B9D;font-size: 70rpx;'>儿童学习助手</text>
+        <view class="login-item-section">
+            <input placeholder="请输入邮箱" class="login-item-input" placeholder-style="color:#f5f5f5;" bindinput="bindKeyInput" />
+        </view>
+        <view class="login-item-section">
+            <input placeholder="请输入密码" class="login-item-input" placeholder-style="color:#f5f5f5;" bindinput="bindKeyInput" />
+        </view>
+        <view class="login-item-button">
+            <button type="primary"  style="width:240rpx;background-color: #457B9D;"  loading="{{loading}}" class="login-button" bindtap="isLogin"> 登录 </button>
+            <button type="primary"  style="width:240rpx;background-color: #457B9D;"  loading="{{loading}}" class="login-button" bindtap="isLogin"> 忘记密码 </button>
+        </view>
+        <button type="primary" style="width:420rpx;background-color: #006666;" size="default"loading="{{loading}}" class="login-button" bindtap="isLogin"> 注册 </button>
+
+        <view class="error-msg" wx:if="{{error}}">{{error}}</view>
+    </view>
+</view>
+</page>
