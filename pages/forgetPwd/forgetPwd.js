@@ -1,5 +1,5 @@
 import {
-    postRequest,
+    putRequest,
     postParamsRequest
 } from '../../utils/request.js';
 import WxValidate from "../../utils/WxValidate.js";
@@ -62,14 +62,12 @@ Page({
             showCancel: false,
         })
     },
-    isRegister: function (e) {
+    forgetPwd: function (e) {
         console.log(e.detail.value);
         let {
             code,
             email,
-            nick_name,
             password,
-            age
         } = e.detail.value;
         var that = this;
         if(email!=that.checkEmail){
@@ -86,14 +84,12 @@ Page({
             that.setData({
                 error: ''
             });
-            postRequest("/user/register", {
+            putRequest("/user/resetPasswd", {
                 email: email,
                 password: password,
                 code: code,
-                nick_name: nick_name,
-                age: age
             }).then(res => {
-                console.log("注册返回数据:")
+                console.log("修改返回数据:")
                 console.log(res)
                 if (res.data.success) {
                     var CuserInfo = {
@@ -103,7 +99,7 @@ Page({
                     wx.setStorageSync(tokenKey, CuserInfo);
 
                     wx.showToast({
-                        title: '注册成功',
+                        title: '修改成功',
                         icon: 'success',
                         duration: 2000
                     })
@@ -118,7 +114,7 @@ Page({
                         loading: false
                     });
                     wx.showToast({
-                        title: '注册失败',
+                        title: '修改失败',
                         icon: 'error',
                         duration: 2000
                     })
@@ -138,12 +134,6 @@ Page({
                 required: true,
                 equalTo: 'password',
             },
-            age: {
-                required: true,
-                digits: true,
-                min:0,
-                max:120,
-            },
         }
 
         //返回信息
@@ -156,12 +146,6 @@ Page({
             checkPassword: {
                 required: '请填写确认密码',
                 equalTo: '两次输入的密码不一致'
-            },
-            age: {
-                required: "请填写年龄",
-                digits: "请输入数字",
-                min:"年龄要大于0",
-                max:"年龄要小于120",
             },
         }
         this.WxValidate = new WxValidate(rules, messages)

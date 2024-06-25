@@ -1,0 +1,33 @@
+<!--pages/forgetPwd/forgetPwd.wxml-->
+<page>
+    <view class="login">
+        <view class="login-item">
+            <image class="login-item-img" mode="widthFix" src="/image/child.png"></image>
+            <!-- <text class='user-name' style="color: #F1FAEE;font-size: 50rpx;">Childern Master</text> -->
+            <text class='user-name' style='color:#457B9D;font-size: 70rpx;'>重置密码</text>
+            <form bindsubmit="forgetPwd">
+                <form bindsubmit="sendCode">
+                    <view class="login-item-section">
+                        <input name="email" placeholder="请输入邮箱" class="login-item-input" placeholder-style="color:#f5f5f5;" />
+                    </view>
+                    <view class="code_section">
+                        <view class="code_input">
+                            <input name="code" placeholder="请输入验证码" class="login-item-input" placeholder-style="color:#f5f5f5;" />
+                        </view>
+                        <button type="primary" style="width:210rpx;background-color: #006666; font-size:27rpx" size="mini" loading="{{loading}}" class="login-button" hover-class="btn-hover" formType="submit">发送验证码</button>
+                    </view>
+                </form>
+                <view class="login-item-section">
+                    <input name="password" placeholder="请输入密码（6-16位）" class="login-item-input" placeholder-style="color:#f5f5f5;" password="true" />
+                </view>
+                <view class="login-item-section">
+                    <input name="checkPassword" placeholder="请再次输入密码（6-16位）" class="login-item-input" placeholder-style="color:#f5f5f5;" password="true"/>
+                </view>
+                <view class="login-item-button">
+                    <button type="primary" style="width:420rpx;background-color: #006666;" size="default" loading="{{loading}}" class="login-button" hover-class="btn-hover" formType="submit"> 提交 </button>
+                </view>
+            </form>
+            <view class="error-msg" wx:if="{{error}}">{{error}}</view>
+        </view>
+    </view>
+</page>

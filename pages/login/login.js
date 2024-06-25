@@ -1,60 +1,77 @@
+import {
+    postRequest
+} from '../../utils/request.js';
+const app = getApp();
+var tokenKey = app.globalData.tokenKey;
 Page({
-  data: {
-    loading: false,
-    accesstoken: "",
-    error: ""
-  },
+    data: {
+        loading: false,
+        // accesstoken: "",
+        error: ""
+    },
 
-  onLoad: function() {
+    onLoad: function () {
 
-  },
+    },
 
-  bindKeyInput: function(e) {
-    this.setData({
-      accesstoken: e.detail.value
-    })
-  },
+    bindKeyInput: function (e) {
+        this.setData({
+            accesstoken: e.detail.value
+        })
+    },
 
-  // 验证token(登录)
-  isLogin: function() {
-    var that = this;
-    var accesstoken = that.data.accesstoken;
-    var ApiUrl = Api.accesstoken;
+    // 验证token(登录)
+    isLogin: function (e) {
+        console.log(e.detail.value);
+        let {
+            email,
+            pwd
+        } = e.detail.value;
+        var that = this;
 
-    if(accesstoken === "") return;
+        that.setData({
+            loading: true
+        });
 
-    that.setData({ loading: true });
+        postRequest("/user/login", {
+            email: email,
+            password: pwd
+        }).then(res => {
+            console.log("登录成功返回数据:")
+            console.log(res)
+            if (res.data.success) {
+                var CuserInfo = {
+                    token: res.data,
+                };
+                console.log(CuserInfo)
+                wx.setStorageSync(tokenKey, CuserInfo);
 
-    Api.fetchPost(ApiUrl, { accesstoken:accesstoken }, (err, res) => {
-
-      if(res.success){
-        var CuserInfo = {
-          accesstoken: accesstoken,
-          id: res.id,
-          loginname: res.loginname,
-          avatar_url: res.loginname
-        };
-        console.log(CuserInfo)
-        wx.setStorageSync('CuserInfo', CuserInfo);
-
-        setTimeout(function(){
-          that.setData({ loading: false });
-          // wx.navigateTo({
-          //   url: '/pages/index/index'
-          // })
-          wx.navigateBack();
-        },3000);
-
-      }else{
-        that.setData({ error: res.error_msg });
-        that.setData({ loading: false });
-        setTimeout(function(){
-          that.setData({ error: "" });
-        },2000);
-      }
-
-    })
-
-
-  }
+                wx.showToast({
+                    title: '登录成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+                wx.switchTab({
+                    url: '/pages/learn/index'
+                })
+            } else {
+                that.setData({
+                    error: res.data.errorMsg
+                });
+                that.setData({
+                    loading: false
+                });
+                wx.showToast({
+                    title: '登录失败' + that.error,
+                    icon: 'error',
+                    duration: 2000
+                })
+            }
+        })
+    },
+    isRegister: function () {
+        this.pageRouter.navigateTo({
+            url: '../register/register'
+        })
+    }
 })

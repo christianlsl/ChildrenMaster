@@ -10,8 +10,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pkgA/login/login",
-          "pathName": "pkgA/pages/login/login",
+          "name": "pages/register/register",
+          "pathName": "pages/forgetPwd/forgetPwd",
           "query": "",
           "launchMode": "default",
           "scene": null

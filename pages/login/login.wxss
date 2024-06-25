@@ -35,7 +35,7 @@ page {
 }
 
 .login-item-section .login-item-input {
-    color: #fff;
+    color: #000000;
     height: 50rpx;
     line-height: 50rpx;
     font-size: 28rpx;

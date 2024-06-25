@@ -2,7 +2,8 @@
 
 App({
   globalData: {
-    history: []
+    history: [],
+    tokenKey: "userInfo"
   },
     onLaunch() {
         wx.cloud.init({
