@@ -10,7 +10,6 @@ Page({
     isAnswered: false,
     timeLeft: 60, // 60 seconds
     timer: null,
-    accuracyHistory: []
   },
 
   onLoad: function () {
@@ -111,26 +110,12 @@ Page({
       correctRate: this.data.accuracy / 100
     })
     .then(() => {
-      this.fetchAccuracyHistory();
     })
     .catch((err) => {
       this.showErrorModal(err.errMsg);
     });
   },
 
-  fetchAccuracyHistory: function () {
-    getRequest('/user/poem/score', {})
-      .then((res) => {
-        const history = res.data.slice(-10); // 只取最近10次记录
-        this.setData({
-          accuracyHistory: history
-        });
-        this.generateScoreChart();
-      })
-      .catch((err) => {
-        this.showErrorModal(err.errMsg);
-      });
-  },
 
   showErrorModal: function (errorMessage) {
     wx.showModal({

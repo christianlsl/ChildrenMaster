@@ -13,11 +13,9 @@ Page({
     score: 0,
     mistakes: [],
     previousAccuracy: 0,
-    recentScores: [],
   },
 
   onLoad: function () {
-    this.fetchRecentScores();
   },
 
   selectDifficulty: function (e) {
@@ -112,43 +110,6 @@ Page({
       .catch(err => {
         console.error(err);
       });
-  },
-
-  fetchRecentScores: function () {
-    request.getRequest('/user/math/score')
-      .then(res => {
-        this.setData({
-          recentScores: res.data,
-          previousAccuracy: res.data.length > 0 ? res.data[res.data.length - 1] : 0
-        });
-        this.generateScoreChart();
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  },
-
-  generateScoreChart: function () {
-    const scores = this.data.recentScores;
-    // 这里使用微信小程序的图表库生成折线图，例如 wx-charts 或其他图表库
-    // 示例代码如下（使用 wx-charts 库）：
-    new wxCharts({
-      canvasId: 'scoreCanvas',
-      type: 'line',
-      categories: scores.map((_, index) => `第${index + 1}次`),
-      series: [{
-        name: '准确率',
-        data: scores.map(score => score * 100),
-        format: (val) => val.toFixed(2) + '%'
-      }],
-      yAxis: {
-        title: '准确率 (%)',
-        min: 0,
-        max: 100
-      },
-      width: 320,
-      height: 200
-    });
   },
 
   viewMistakes: function () {
