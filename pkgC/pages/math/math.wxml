@@ -1,0 +1,41 @@
+<!-- pages/math/math.wxml -->
+<view class="container">
+  <!-- 难度选择 -->
+  <view class="difficulty-selection" wx:if="{{!started}}">
+    <text>选择难度等级：</text>
+    <block wx:for="{{[1, 2, 3, 4]}}" wx:key="item">
+      <button data-level="{{item}}" bindtap="selectDifficulty">
+        难度 {{item}}
+      </button>
+    </block>
+  </view>
+  
+  <!-- 问题显示 -->
+  <view wx:if="{{started}}">
+    <view class="question-section">
+      <text>{{currentQuestion.question}}</text>
+    </view>
+    
+    <!-- 答案输入 -->
+    <view class="answer-section">
+      <input type="number" placeholder="请输入答案" value="{{inputAnswer}}" bindinput="inputChange" disabled="{{finished}}"/>
+      <button bindtap="submitAnswer" disabled="{{finished}}">提交</button>
+    </view>
+    
+    <!-- 分数和正确率显示 -->
+    <view class="score-section" wx:if="{{finished}}">
+      <text>正确率: {{accuracy}}</text>
+      <button bindtap="viewMistakes">查看错题</button>
+    </view>
+    
+    <!-- 错题查看 -->
+    <view wx:if="{{viewingMistakes}}">
+      <block wx:for="{{mistakes}}" wx:key="question">
+        <view>
+          <text>{{item.question}} 正确答案: {{item.answer}} 你的答案: {{item.yourAnswer}}</text>
+        </view>
+      </block>
+      <button bindtap="goBack">隐藏</button>
+    </view>
+  </view>
+</view>

@@ -25,6 +25,15 @@
         "pages/dinosaur/dinosaur"
       ],
       "independent": true
+    },
+    {
+      "root": "pkgC",
+      "name": "p3",
+      "pages": [
+        "pages/math/math",
+        "pages/poems/poems"
+      ],
+      "independent": true
     }
   ],
   "window": {
