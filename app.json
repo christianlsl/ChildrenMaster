@@ -55,6 +55,12 @@
         "text": "学一学"
       },
       {
+        "pagePath": "pages/chatLLM/chatLLM",
+        "iconPath": "/image/ai.png",
+        "selectedIconPath": "/image/ai_selected.png",
+        "text": "AI老师"
+      },
+      {
         "pagePath": "pages/my/my",
         "iconPath": "/image/my_off.png",
         "selectedIconPath": "/image/my_on.png",

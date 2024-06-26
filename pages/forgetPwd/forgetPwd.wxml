@@ -2,7 +2,7 @@
 <page>
     <view class="login">
         <view class="login-item">
-            <image class="login-item-img" mode="widthFix" src="/image/child.png"></image>
+            <image class="login-item-img" mode="widthFix" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/TmEUgtj9EK6.7V8ajmQrEDODIwpR1TMkK1bIX6*jHY5Oq*AwTA2kRogwiip*HIzB2FdTBD9quGOWFTpayE7tz79KQGDJ30lxWBABy5.tssY!/b&bo=yADIAAAAAAADByI!&rf=viewer_4"></image>
             <!-- <text class='user-name' style="color: #F1FAEE;font-size: 50rpx;">Childern Master</text> -->
             <text class='user-name' style='color:#457B9D;font-size: 70rpx;'>重置密码</text>
             <form bindsubmit="forgetPwd">

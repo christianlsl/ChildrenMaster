@@ -2,7 +2,7 @@
 
 <view class="personalContainer">
   <view class="user-section">
-    <image class="bg" src="./image/scene.png"></image>
+    <image class="bg" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/TmEUgtj9EK6.7V8ajmQrEM.3UqVRNXMnW4BQ4bcOSKmB9TDKJD7ekZ5JOkx31DcC165lyX48PaL.N2xrxbZlOYwrIE1zvuYKDztm3cPEvzM!/b&bo=8wFcAQAAAAADF50!&rf=viewer_4"></image>
     <view class="user-info-box">
       <text class="username">昵称：{{userInfo.nick_name}}</text>
       <text class="username">年龄：{{userInfo.age}}</text>

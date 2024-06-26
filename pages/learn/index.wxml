@@ -1,7 +1,7 @@
 <view class="index-container">
   <view class="index-header">
-    <image class="index-header-bg" src="../learn/img/img_login_bg.png"></image>
-    <image class="index-header-obg" src="../learn/img/reading.png"></image>
+    <image class="index-header-bg" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/TmEUgtj9EK6.7V8ajmQrEK*PG0UpIhwxhSDJqlnQT*n1cnimFvhLcq7346dZ2qCtnsKlj*YOGE3AtoC4So.ZjVWDCfeCY6rx5PswWnjGhlQ!/b&bo=7gKcAAAAAAADF0I!&rf=viewer_4"></image>
+    <image class="index-header-obg" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/TmEUgtj9EK6.7V8ajmQrEELjSZd9478ZdAHip6PU6YBK5kfzD3pWnqXEeyWJL51ZCMs08DHt*Cb20nNHr3Esok4rRiKLnvFNF4UMmQu5.aA!/b&bo=YgFiAQAAAAADJwI!&rf=viewer_4"></image>
     <!-- <image class="index-header-title" src="../baby/img/title.png"></image> -->
   </view>
   <!-- <view class="itemBox">

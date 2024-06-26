@@ -1,8 +1,8 @@
 <view class="abc-container">
 
   <view class="head">
-    <image class="title" src="../abc/img/title.png"></image>
-    <image class="phonetic_hidden" src="../abc/img//phonetic_hidden.png" bindtap="phonetic_hidden"></image>
+    <image class="title" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/ruAMsa53pVQWN7FLK88i5tSBA.Nmbby30hXZXc3.tU2p9cEePw7GnqD0MizJaedmQz0u6lCLDkMKIPXdRdDiMYqZCBxUd.7rzy.81A9aupA!/b&bo=nQAbAAAAAAADF7Q!&rf=viewer_4"></image>
+    <image class="phonetic_hidden" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/ruAMsa53pVQWN7FLK88i5tSBA.Nmbby30hXZXc3.tU1vcai.hPHpNy5xcwgbE*l7P3QmUurOpVDFKmYywwyIWIm59Fp7JNCPHqwBEjqri1M!/b&bo=ZABeAAAAAAADFwg!&rf=viewer_4" bindtap="phonetic_hidden"></image>
   </view>
 
   <view class="abc_box">
@@ -10,7 +10,7 @@
       <text class="word">{{item.name}}</text>
       <text class="wordkk" hidden="{{phonetic_hidden2}}">{{item.phonetic}}</text>
       <view class="wordsound">
-        <image class="img" src="../abc/img/btn_videoPlay.png" bindtap="audioPlay" data-url="{{item.name}}" />
+        <image class="img" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/ruAMsa53pVQWN7FLK88i5s1VhjbZ8XD7lWX3BSbsXxTKj.X4GOTVOLxT5RflKNCUWPTZny0dxtbFapcSmvNu5gPNgedSNgXEFv8gaJmYIYY!/b&bo=ZABkAAAAAAADByI!&rf=viewer_4" bindtap="audioPlay" data-url="{{item.name}}" />
       </view>
     </view>
   </view>

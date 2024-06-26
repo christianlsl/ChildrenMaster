@@ -1,5 +1,5 @@
 {
-  "projectname": "frontend",
+  "projectname": "ChildrenMaster",
   "setting": {
     "compileHotReLoad": true,
     "urlCheck": false
@@ -10,15 +10,15 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/my/my",
-          "pathName": "pages/my/my",
+          "name": "pages/learn/index",
+          "pathName": "pages/learn/index",
           "query": "",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "pkgA/pages/123/123",
-          "pathName": "pkgA/pages/123/123",
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
           "query": "",
           "launchMode": "default",
           "scene": null

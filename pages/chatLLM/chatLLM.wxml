@@ -3,7 +3,7 @@
 <page>
     <view class="login">
         <view class="login-item">
-            <image class="login-item-img" mode="widthFix" src="/image/ai_code.png"></image>
+            <image class="login-item-img" mode="widthFix" src="http://m.qpic.cn/psc?/V536lfXO2AgLZ52grrDP1YZ9Iv3zTPHT/ruAMsa53pVQWN7FLK88i5rWHmgVS23OVX5MOLOyUcjafrUk2knTEACsf06zEc7*O1JGylNFevNv7sE2U310NfkI335rjwSuXQAZGTVSA*3g!/b&bo=yADIAAAAAAADFzI!&rf=viewer_4"></image>
             <text class='user-name' style='color:#457B9D;font-size: 50rpx;'>AI机器人小老师</text>
             <scroll-view class="scroll-y" scroll-y>
                 <!-- <text user-select>{{currentContent}}</text> -->

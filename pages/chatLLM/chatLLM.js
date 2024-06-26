@@ -1,4 +1,5 @@
 // pages/chatLLM/chatLLM.js
+import TextDecoder from '../../utils/miniprogram-text-decoder'
 const app = getApp();
 Page({
     data: {
@@ -46,11 +47,13 @@ Page({
         })
         // 监听服务端返回的数据
         requestTask.onChunkReceived(res => {
-            // Uint8Array to string
-            let arrayBuffer = res.data;
-            let decoder = new TextDecoder('utf-8');
-            let text = decoder.decode(arrayBuffer);
-            //let text = that.arrayBufferToString(arrayBuffer)//真机使用
+            // Uint8Array to string //方案一，只可用于开发工具
+            // let arrayBuffer = res.data;
+            // let decoder = new TextDecoder('utf-8');
+            // let text = decoder.decode(arrayBuffer);
+            const arrayBuffer = new Uint8Array(res.data)//方案二，可用于开发工具&真机
+            let text = new TextDecoder().decode(arrayBuffer)
+
             //正则匹配上所有event:data后面的文字
             const eventRegex = /"content":"(.*?)"/g;
             let matches = [];
