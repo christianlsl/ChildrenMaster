@@ -21,7 +21,6 @@ public class MathExerciseScore {
     @Column(name = "date_recorded")
     private LocalDateTime dateRecorded;
 
-    // Getters and Setters
     public long getId() {
         return id;
     }
