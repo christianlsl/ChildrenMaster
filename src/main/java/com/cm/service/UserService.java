@@ -12,7 +12,9 @@ public interface UserService {
 
     Result login(LoginFormDTO loginForm);
 
-    public Result getUserById(long id);
+    Result getUserByEmail(String email);
+
+    Result getUserByToken(String token);
 
     Result updateUserById(long id, int age, String nickName, String email);
 
