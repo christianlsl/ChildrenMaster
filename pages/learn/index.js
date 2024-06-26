@@ -19,7 +19,11 @@ Page({
       },
       {
         imgurl:"../learn/img/animal.png",
-        navigator:"/pkgB/pages/animal/animal"
+        navigator:"/pkgC/pages/poems/poems"
+      },
+      {
+        imgurl:"../learn/img/123.png",
+        navigator:"/pkgC/pages/math/math"
       }
     ],
   }

@@ -1,0 +1,22 @@
+<view class="container">
+  <block wx:if="{{poemList.length}}">
+    <view class="poem-title">{{poemList[currentIndex].title}}</view>
+    <view class="poem-verses">{{poemList[currentIndex].poemVerses}}</view>
+    <view class="poem-options">
+      <block wx:for="{{poemOptions}}" wx:for-item="option" wx:for-index="index">
+        <view class="option" data-answer="{{index}}" bindtap="selectAnswer">
+          {{String.fromCharCode(65 + index)}}. {{option}}
+        </view>
+      </block>
+    </view>
+    <view class="score-accuracy">
+      <text>得分: {{score}}</text>
+      <text>准确率: {{accuracy}}%</text>
+      <text>剩余时间: {{timeLeft}}s</text>
+    </view>
+    <canvas canvas-id="scoreCanvas" class="score-chart"></canvas>
+  </block>
+  <block wx:else>
+    <view>正在加载数据...</view>
+  </block>
+</view>

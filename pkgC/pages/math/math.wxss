@@ -1,0 +1,33 @@
+/* pages/math/math.wxss */
+.container {
+  padding: 20px;
+}
+
+.difficulty-selection {
+  text-align: center;
+}
+
+.question-section {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer-section input {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.score-section {
+  margin-top: 20px;
+}
+
+.score-section text {
+  display: block;
+  margin-bottom: 10px;
+}
