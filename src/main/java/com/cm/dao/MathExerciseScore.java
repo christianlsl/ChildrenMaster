@@ -9,7 +9,7 @@ public class MathExerciseScore {
 
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)//主键自增
     private long id;
 
     @Column(name = "user_id")

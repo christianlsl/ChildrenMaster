@@ -62,7 +62,7 @@ public class PoemServiceImpl implements PoemService {
                 default -> throw new IllegalArgumentException("Invalid blank verse index");
             }
 
-            // Collect options
+            //构造选项
             Set<String> options = new LinkedHashSet<>();
             options.add(answer);
             while (options.size() < 4) {
@@ -81,18 +81,18 @@ public class PoemServiceImpl implements PoemService {
                 }
             }
 
-            // Convert to list and shuffle options
+            //封装成列表并打乱顺序
             List<String> optionsList = new ArrayList<>(options);
             Collections.shuffle(optionsList);
 
-            // Determine the answer's position
+            //决定答案的字母
             String answerLetter = "";
             if (optionsList.get(0).equals(answer)) answerLetter = "A";
             else if (optionsList.get(1).equals(answer)) answerLetter = "B";
             else if (optionsList.get(2).equals(answer)) answerLetter = "C";
             else if (optionsList.get(3).equals(answer)) answerLetter = "D";
 
-            // Format options
+            //格式化选项
             String poemOptions = "A. " + optionsList.get(0) + ", B. " + optionsList.get(1) + ", C. " + optionsList.get(2) + ", D. " + optionsList.get(3);
 
             PoemSet poemSet = new PoemSet();
@@ -141,7 +141,7 @@ public class PoemServiceImpl implements PoemService {
                 default -> throw new IllegalArgumentException("Invalid blank verse index");
             }
 
-            // Collect options
+            //构造选项
             Set<String> options = new LinkedHashSet<>();
             options.add(answer);
             while (options.size() < 4) {
@@ -160,18 +160,18 @@ public class PoemServiceImpl implements PoemService {
                 }
             }
 
-            // Convert to list and shuffle options
+            //封装成列表并打乱顺序
             List<String> optionsList = new ArrayList<>(options);
             Collections.shuffle(optionsList);
 
-            // Determine the answer's position
+            //决定答案的字母
             String answerLetter = "";
             if (optionsList.get(0).equals(answer)) answerLetter = "A";
             else if (optionsList.get(1).equals(answer)) answerLetter = "B";
             else if (optionsList.get(2).equals(answer)) answerLetter = "C";
             else if (optionsList.get(3).equals(answer)) answerLetter = "D";
 
-            // Format options
+            //格式化选项
             String poemOptions = "A. " + optionsList.get(0) + ", B. " + optionsList.get(1) + ", C. " + optionsList.get(2) + ", D. " + optionsList.get(3);
 
             PoemSet poemSet = new PoemSet();
