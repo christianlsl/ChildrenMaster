@@ -1,3 +1,4 @@
+import wxCharts from '../../utils/wxcharts.js';
 const app = getApp()
 var tokenKey = app.globalData.tokenKey;
 import {

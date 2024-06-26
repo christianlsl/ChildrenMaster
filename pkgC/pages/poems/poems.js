@@ -140,27 +140,4 @@ Page({
       }, 1000)
     });
   },
-
-  generateScoreChart: function () {
-    const scores = this.data.accuracyHistory.map(record => record.correctRate * 100);
-    const categories = this.data.accuracyHistory.map((_, index) => `第${index + 1}次`);
-    
-    new wxCharts({
-      canvasId: 'scoreCanvas',
-      type: 'line',
-      categories: categories,
-      series: [{
-        name: '准确率',
-        data: scores,
-        format: (val) => val.toFixed(2) + '%'
-      }],
-      yAxis: {
-        title: '准确率 (%)',
-        min: 0,
-        max: 100
-      },
-      width: 320,
-      height: 200
-    });
-  }
 });
