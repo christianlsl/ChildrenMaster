@@ -15,7 +15,9 @@ Page({
         },
         recentPlayList: [],
         isLogin: false,
-        history: app.globalData.history
+        history: app.globalData.history,
+        mathScores: [],
+        poemScores: [],
     },
     getUserProfile(e) {
         wx.getUserProfile({
@@ -64,5 +66,66 @@ Page({
                 }
             }
         })
-    }
+    },
+    
+    fetchScores() {
+    Promise.all([
+      getRequest('/user/math/score'),
+      getRequest('/user/poem/score')
+    ]).then(([mathRes, poemRes]) => {
+      this.setData({
+        mathScores: mathRes.data,
+        poemScores: poemRes.data
+      });
+      this.generateScoreCharts();
+    }).catch((err) => {
+      console.error(err);
+      wx.showModal({
+        title: '错误',
+        content: '获取数据失败',
+        showCancel: false
+      });
+    });
+  },
+  
+  generateScoreCharts() {
+    const { mathScores, poemScores } = this.data;
+    
+    // 示例代码（使用 wx-charts 库）
+    new wxCharts({
+      canvasId: 'mathScoreCanvas',
+      type: 'line',
+      categories: mathScores.map((_, index) => `第${index + 1}次`),
+      series: [{
+        name: 'Math 准确率',
+        data: mathScores.map(score => score * 100),
+        format: (val) => val.toFixed(2) + '%'
+      }],
+      yAxis: {
+        title: '准确率 (%)',
+        min: 0,
+        max: 100
+      },
+      width: 320,
+      height: 200
+    });
+    
+    new wxCharts({
+      canvasId: 'poemScoreCanvas',
+      type: 'line',
+      categories: poemScores.map((_, index) => `第${index + 1}次`),
+      series: [{
+        name: 'Poem 准确率',
+        data: poemScores.map(score => score * 100),
+        format: (val) => val.toFixed(2) + '%'
+      }],
+      yAxis: {
+        title: '准确率 (%)',
+        min: 0,
+        max: 100
+      },
+      width: 320,
+      height: 200
+    });
+  }
 })

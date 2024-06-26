@@ -13,7 +13,7 @@
     <view class="header">
       <view class="left">
         <view class="hot"></view>
-        <text>个人信息</text>
+        <text  bindtap="fetchScores">个人信息</text>
       </view>
     </view>
     <view class="content-wrapper">
@@ -32,6 +32,9 @@
       </block>
     </view>
   </view>
+
+  <canvas canvas-id="mathScoreCanvas" style="width: 320px; height: 200px;"></canvas>
+  <canvas canvas-id="poemScoreCanvas" style="width: 320px; height: 200px;"></canvas>
 
   <view hidden="{{!isLogin}}">
     <button class="logout-btn" bindtap="logout">退出登录</button>
