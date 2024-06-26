@@ -97,3 +97,28 @@
 
 + 功能特点：
   1. 根据算数和诗词填空两个模块的正确率，分别给出前10次正确率曲线，直观评估学习效果
+
+
+
+
+
+### LLM运行
+
++ LLaMA.cpp HTTP Server
+
+#### nohup
+
+```shell
+nohup ./llama-server -m ../qwen2-7b-instruct-q4_0.gguf -ngl 28 -fa --host 0.0.0.0 --port 6060 &
+```
+
+#### Docker
+
+```bash
+docker run -p 8080:8080 -v /path/to/models:/models ghcr.io/ggerganov/llama.cpp:server -m models/7B/ggml-model.gguf -c 512 --host 0.0.0.0 --port 8080
+
+# or, with CUDA:
+docker run -p 8080:8080 -v /path/to/models:/models --gpus all ghcr.io/ggerganov/llama.cpp:server-cuda -m models/7B/ggml-model.gguf -c 512 --host 0.0.0.0 --port 8080 --n-gpu-layers 99
+```
+
+## 

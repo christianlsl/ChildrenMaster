@@ -199,9 +199,28 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Result getUserById(long id){
-        User user = userRepository.findById(id).orElseThrow(RuntimeException::new);
+    public Result getUserByEmail(String email){
+        if (RegexUtils.isEmailInvalid(email)) {
+            return Result.fail("邮箱格式错误！");
+        }
+        User user = userRepository.findByEmail(email);
+        if (user==null){
+            return Result.fail("此邮箱"+email+" 还未注册！");
+        }
         return Result.ok(UserConverter.convertUser(user));
+    }
+
+    @Override
+    public Result getUserByToken(String token) {
+        Map<Object, Object> userMap = stringRedisTemplate.opsForHash().entries(LOGIN_USER_KEY+token);
+//        UserDTO userDTO = BeanUtil.mapToBean(userMap, UserDTO.class, CopyOptions.create()
+//                .setIgnoreNullValue(true)
+//                .setFieldValueEditor((fieldName, fieldValue) -> fieldValue.toString();
+//                    return null;
+//                }));
+        System.out.println(userMap);
+        UserDTO userDTO = BeanUtil.mapToBean(userMap, UserDTO.class,true);
+        return Result.ok(userDTO);
     }
 
 

@@ -45,9 +45,13 @@ public class UserController {
         return userService.login(loginForm);
     }
 
-    @GetMapping("/user/{id}")
-    public Result getUserById(@PathVariable long id) {
-        return userService.getUserById(id);
+    @GetMapping("/user/getUserByEmail/{email}")
+    public Result getUserByEmail(@PathVariable String email) {
+        return userService.getUserByEmail(email);
     }
 
+    @GetMapping("/user/getUserByToken/{token}")
+    public Result getUserByToken(@PathVariable String token) {
+        return userService.getUserByToken(token);
+    }
 }
