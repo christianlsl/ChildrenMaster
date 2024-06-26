@@ -21,7 +21,7 @@
             <button type="primary" style="width:420rpx;margin-bottom: 10rpx; background-color: #457B9D;" size="default" loading="{{loading}}" class="login-button" bindtap="forgetPwd"> 忘记密码 </button>
             <button type="primary" style="width:420rpx;background-color: #457B9D;" size="default" loading="{{loading}}" class="login-button" bindtap="isRegister"> 注册 </button>
 
-            <!-- <view class="error-msg" wx:if="{{error}}">{{error}}</view> -->
+            <view class="error-msg" wx:if="{{error}}">{{error}}</view>
         </view>
     </view>
 </page>

@@ -24,12 +24,15 @@
 .user-info-box{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  height: 220rpx;
-  display:flex;
+  
+  justify-content: center;
+  height: 130rpx;
+  /* width: 250rpx; */
   align-items:center;
   position:relative;
   z-index: 1;
+  background-color: rgba(241,250,238, 0.8);
+  border-radius: 15rpx;
 }
 
 .user-info-box .portrait{
@@ -40,9 +43,8 @@
   
 }
 .user-info-box .username{
-  margin-top: 20rpx;
-  font-size: 64;
-  color: #303133;
+  font-size: 34;
+  color: #003B46;
   margin-left: 20rpx;
   font-weight:bolder;
 }

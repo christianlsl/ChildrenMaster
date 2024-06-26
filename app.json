@@ -4,7 +4,8 @@
     "pages/learn/index",
     "pages/my/my",
     "pages/register/register",
-    "pages/forgetPwd/forgetPwd"
+    "pages/forgetPwd/forgetPwd",
+    "pages/chatLLM/chatLLM"
   ],
   "subpackages": [
     {
@@ -27,8 +28,8 @@
     }
   ],
   "window": {
-    "navigationBarBackgroundColor": "#1ECFA7",
-    "navigationBarTitleText": "BabyMaster 宝宝大师",
+    "navigationBarBackgroundColor": "#8FBC8F",
+    "navigationBarTitleText": "ChildernMaster",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark"
   },

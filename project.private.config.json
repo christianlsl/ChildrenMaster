@@ -10,8 +10,22 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/register/register",
-          "pathName": "pages/forgetPwd/forgetPwd",
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pkgA/pages/123/123",
+          "pathName": "pkgA/pages/123/123",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/chatLLM/chatLLM",
+          "pathName": "pages/chatLLM/chatLLM",
           "query": "",
           "launchMode": "default",
           "scene": null

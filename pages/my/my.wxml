@@ -4,9 +4,8 @@
   <view class="user-section">
     <image class="bg" src="./image/scene.png"></image>
     <view class="user-info-box">
-      <image wx:if="{{userInfo.avatarUrl}}" class="portrait" src='{{userInfo.avatarUrl}}'></image>
-      <button wx:else bindtap="getUserProfile" class="loginButton">点我登陆</button>
-      <text class="username">{{userInfo.nickName}}</text>
+      <text class="username">昵称：{{userInfo.nick_name}}</text>
+      <text class="username">年龄：{{userInfo.age}}</text>
     </view>
   </view>
 
@@ -14,7 +13,7 @@
     <view class="header">
       <view class="left">
         <view class="hot"></view>
-        <text>历史记录</text>
+        <text>个人信息</text>
       </view>
     </view>
     <view class="content-wrapper">

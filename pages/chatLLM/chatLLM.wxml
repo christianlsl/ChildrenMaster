@@ -1,0 +1,23 @@
+<!--pages/chatLLM/chatLLM.wxml-->
+
+<page>
+    <view class="login">
+        <view class="login-item">
+            <image class="login-item-img" mode="widthFix" src="/image/ai_code.png"></image>
+            <text class='user-name' style='color:#457B9D;font-size: 50rpx;'>AI机器人小老师</text>
+            <scroll-view class="scroll-y" scroll-y>
+                <!-- <text user-select>{{currentContent}}</text> -->
+                <towxml nodes='{{currentContent}}' />
+            </scroll-view>
+
+            <form bindsubmit="send">
+                <view class="login-item-section">
+                    <input name="query" placeholder="请输入问题" class="login-item-input" placeholder-style="color:#f5f5f5;" bindinput="bindKeyInput" />
+                </view>
+                <view class="login-item-button">
+                    <button type="primary" style="width:240rpx;background-color: #006666;" loading="{{loading}}" class="login-button" formType="submit"> 询问 </button>
+                </view>
+            </form>
+        </view>
+    </view>
+</page>

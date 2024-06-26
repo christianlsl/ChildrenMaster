@@ -92,12 +92,9 @@ Page({
                 console.log("修改返回数据:")
                 console.log(res)
                 if (res.data.success) {
-                    var CuserInfo = {
-                        token: res.data,
-                    };
-                    console.log(CuserInfo)
-                    wx.setStorageSync(tokenKey, CuserInfo);
-
+                    console.log(res.data.data)
+                    wx.setStorageSync(tokenKey, res.data.data);
+                    wx.setStorageSync('email', email);
                     wx.showToast({
                         title: '修改成功',
                         icon: 'success',
