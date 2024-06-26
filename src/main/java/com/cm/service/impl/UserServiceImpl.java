@@ -38,25 +38,20 @@ public class UserServiceImpl implements UserService {
     private StringRedisTemplate stringRedisTemplate;
     @Override
     public Result sendCode(String email) {
-        // check phone number
+        // 检查邮箱账号是否有效
         if (RegexUtils.isEmailInvalid(email)) {
             //not match, return error
             return Result.fail("邮箱格式错误！");
         }
-//        User user = userRepository.findByEmail(email);
-//        if (user!=null){
-//            return Result.fail("邮箱"+email+"已被注册！");
-//        }
-        //match, create verification code
+
+        //生成验证码
         String code = RandomUtil.randomNumbers(6);
-        //send email
+        //发验证码
         Result sendResult = emailService.sendText("1754583493@qq.com",email,"邮箱验证码",code);
-        //save code to redis
+        //保存到redis
         if (sendResult.getSuccess()){
             stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + email, code, 2, TimeUnit.MINUTES);
-            //send code
             log.debug("发送并存储验证码成功，code:{}", code);
-            //return ok
             return Result.ok();
         }
         return Result.fail("邮件发送失败！");
@@ -67,7 +62,6 @@ public class UserServiceImpl implements UserService {
         //check email
         String email = loginForm.getEmail();
         if (RegexUtils.isEmailInvalid(email)) {
-            //not match, return error
             return Result.fail("邮箱格式错误！");
         }
         User user = userRepository.findByEmail(email);
@@ -78,7 +72,6 @@ public class UserServiceImpl implements UserService {
         String cacheCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY + email);
         String code = loginForm.getCode();
         if (cacheCode == null || !cacheCode.equals(code)) {
-            //different, error
             return Result.fail("验证码错误");
         }
 
