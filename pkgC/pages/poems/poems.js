@@ -1,5 +1,6 @@
 const { getRequest,postParamsRequest, postRequest } = require('../../../utils/request.js');
-
+const app = getApp()
+var tokenKey = app.globalData.tokenKey;
 Page({
   data: {
     poemList: [],
@@ -11,8 +12,23 @@ Page({
     timeLeft: 60, // 60 seconds
     timer: null,
   },
-
   onLoad: function () {
+    let token = wx.getStorageSync(tokenKey);
+    console.log(token);
+    getRequest("/user/getUserByToken/" + token,'').then(res => {
+        console.log("获取userDTO:", res)
+        if (res.data.success) {
+            this.setData({
+                'userInfo.id': res.data.data.id,
+                'userInfo.nick_name': res.data.data.nick_name,
+                'userInfo.email': res.data.data.email,
+                'userInfo.age': res.data.data.age,
+                isLogin: true
+            })
+        } else {
+            console.log("获取userDTO失败：", res.data.errorMsg)
+        }
+    })
     this.loadPoems();
     this.startTimer();
   },
@@ -21,8 +37,9 @@ Page({
     clearInterval(this.data.timer);
   },
 
-  loadPoems: function () {
-    getRequest('/user/poem/kid', {})
+  loadPoems: function (age) {
+    const url = age < 7 ? '/user/poem/kid' : '/user/poem/teen';
+    getRequest(url, {})
       .then((res) => {
         if (res.data.length > 0) {
           this.setData({
@@ -38,7 +55,6 @@ Page({
         this.showErrorModal(err.errMsg);
       });
   },
-
   selectAnswer: function (e) {
     if (this.data.isAnswered) return;
 
