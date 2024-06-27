@@ -113,9 +113,14 @@ Page({
     .then(() => {
       wx.showToast({
         title: '已完成',
-        icon:'success',
-        duration: 1000
-      })
+        icon: 'success',
+        duration: 2000,
+        success: () => {
+          setTimeout(() => {
+            wx.navigateBack();
+          }, 2000);
+        }
+      });
     })
     .catch((err) => {
       this.showErrorModal(err.errMsg);
