@@ -92,11 +92,10 @@ Page({
   generateScoreCharts() {
     const { mathScores, poemScores } = this.data;
     
-    // 示例代码（使用 wx-charts 库）
     new wxCharts({
       canvasId: 'mathScoreCanvas',
       type: 'line',
-      categories: mathScores.map((_, index) => `第${index + 1}次`),
+      categories: mathScores.map((_, index) => `${index + 1}`),
       series: [{
         name: 'Math 准确率',
         data: mathScores.map(score => score * 100),
@@ -114,7 +113,7 @@ Page({
     new wxCharts({
       canvasId: 'poemScoreCanvas',
       type: 'line',
-      categories: poemScores.map((_, index) => `第${index + 1}次`),
+      categories: poemScores.map((_, index) => `${index + 1}`),
       series: [{
         name: 'Poem 准确率',
         data: poemScores.map(score => score * 100),

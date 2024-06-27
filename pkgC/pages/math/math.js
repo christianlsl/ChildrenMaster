@@ -11,8 +11,7 @@ Page({
     currentQuestionIndex: 0,
     inputAnswer: '',
     score: 0,
-    mistakes: [],
-    previousAccuracy: 0,
+    mistakes: []
   },
 
   onLoad: function () {
@@ -98,12 +97,10 @@ Page({
         showCancel: false
       });
     }
-
-    this.fetchRecentScores();
   },
 
   saveAccuracyRecord: function (accuracy) {
-    request.postRequest('/user/math/record', { correctRate: accuracy })
+    request.postParamsRequest('/user/math/record', { correctRate: accuracy })
       .then(res => {
         console.log('准确率记录已保存');
       })

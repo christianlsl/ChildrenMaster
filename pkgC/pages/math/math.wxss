@@ -1,15 +1,25 @@
 /* pages/math/math.wxss */
 .container {
   padding: 20px;
+  align-items: center;
 }
 
 .difficulty-selection {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.difficulty-selection button {
+  font-size: 50px;
+  padding: 10px 20px;
+  margin: 20px;
+  width:90%;
 }
 
 .question-section {
-  font-size: 24px;
-  margin: 20px 0;
+  font-size: 42px;
+  margin: 80px 0px;
+  text-align: center;
 }
 
 .answer-section {
@@ -20,14 +30,40 @@
 
 .answer-section input {
   width: 200px;
-  margin-bottom: 10px;
+  height: 50px;
+  font-size: 40px;
+  padding: 10px;
+  margin: 80px 0px;
+}
+
+.answer-section button {
+  font-size: 24px;
+  padding: 10px 20px;
 }
 
 .score-section {
-  margin-top: 20px;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .score-section text {
   display: block;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.mistakes-section {
+  text-align: center;
+}
+
+.mistakes-section text {
+  display: block;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.mistakes-section button {
+  font-size: 24px;
+  padding: 10px 20px;
+  margin-top: 20px;
 }

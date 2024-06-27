@@ -1,4 +1,4 @@
-const { getRequest, postRequest } = require('../../../utils/request.js');
+const { getRequest,postParamsRequest, postRequest } = require('../../../utils/request.js');
 
 Page({
   data: {
@@ -93,6 +93,7 @@ Page({
         isAnswered: false
       });
     } else {
+      clearInterval(this.data.timer);
       this.calculateAccuracy();
       this.saveAccuracyRecord();
     }
@@ -106,14 +107,20 @@ Page({
   },
 
   saveAccuracyRecord: function () {
-    postRequest('/user/poem/record', {
+    postParamsRequest('/user/poem/record', {
       correctRate: this.data.accuracy / 100
     })
     .then(() => {
+      wx.showToast({
+        title: '已完成',
+        icon:'success',
+        duration: 1000
+      })
     })
     .catch((err) => {
       this.showErrorModal(err.errMsg);
     });
+
   },
 
 
